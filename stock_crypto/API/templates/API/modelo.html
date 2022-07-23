@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Modelo{% endblock %}</title> 
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"></link>
+</head>
+<body>
+
+    <div class="p-3 mb-2 bg-info text-light">
+        {% block menu %}
+        <h3 class="container">Consultas de criptomoedas</h3>
+        {% endblock %}
+    </div>
+
+
+    <div class="container">
+        {% block conteudo %}
+
+        <div class="container">
+            <form class="row g-3">
+                <div class="col-auto">
+                    <h4>Moeda desejada</h4>
+                </div>
+                <div class="col-auto">
+                    <label for="inputMoeda" class="visually-hidden">BTC</label>
+                    <input type="password" class="form-control" id="inputMoeda" placeholder="BTC">
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-success mb-3">Confirmar</button>
+                </div>
+            </form>
+        </div>
+                        
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Simbolo</th>
+                    <th scope="col">Preço</th>
+                    <th scope="col">Sinalização</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% block tabela %}
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Bitcoin</td>
+                    <td>BTC</td>
+                    <td>R$ 217.000.00</td>
+                    <td class="text-danger">22%</td>
+                </tr>
+                {% endblock %}
+            </tbody>
+        </table>
+        {% endblock %}
+    </div>
+
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>
